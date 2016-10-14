@@ -1,0 +1,110 @@
+<div class="container">
+
+    <div ng-repeat="prod in products">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="images/T{{prod.p_id}}.jpg">
+            </div>
+            <div class="col-md-6 desc">
+                <div  class="desc_heading">{{prod.p_variation + ' '+ prod.p_name |uppercase}}</div>
+                <div class="desc_style">Style #:{{prod.p_style |uppercase}}</div>
+                <div class="desc_style">Color #: <span ng-style="{'text-transform':'capitalize'}">{{prod.p_selected_color.name}}</span></div>
+                <div class="desc_action">
+                    <a ng-click="openModal(prod.p_id)">Edit</a> |
+                    <a ng-click="removeItem(prod.p_id)">Remove</a> |
+                    <i>Save For Later</i>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <p class="desc_size">{{prod.p_selected_size.code}}</p>
+            </div>
+            <div class="col-md-1">
+                <input type="number" min="1" class="form-control" ng-model="prod.p_quantity">
+                <!--<p>{{prod.p_quantity}}</p>-->
+            </div>
+            <div class="col-md-2">
+                <div>{{prod.c_currency + prod.p_price*prod.p_quantity}}</div>
+            </div>
+
+        </div>
+        <hr>
+    </div>
+
+    <div class="thick"><hr/></div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-8">
+                <h4>Need help or have question?</h4>
+                <address>Call Customer Service at 1-800-555-5555</address>
+                <address><a href="">Chat with anyone of our stylists</a></address>
+                <address><a href="">See returns and exchange policies</a></address>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row" id="form_div">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label>Enter Promotion Code or Gift Card</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="button" class="btn btn-default btn-block" value="Apply" ng-class="applyCoupon()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="thick"><hr/></div>
+            </div>
+
+            <div class="row">
+                <label>Subtotal</label>
+                <span class="pull-right"> <e>{{getTotalPrice()|currency : $ : 2}}</e></span>
+            </div>
+            <div class="row">
+                <label>Promotional Discount {{dis}}% Applied</label>
+                <span class="pull-right"> <e> -{{getDiscountedPrice(getTotalPrice())|currency : $ : 2}}</e></span>
+            </div>
+
+            <div class="row">
+                <label>Estimated Shipping
+                    <div class="shipping" ng-show="shipping">
+                        You qualify for free shipping because your order is over $50*
+                    </div>
+                </label>
+
+                <span class="pull-right">Free</span>
+            </div>
+            <hr>
+            <div class="row">
+                <label>Estimated Total
+                    <div class="shipping" ng-show="shipping">
+                        Tax will be applied during checkout
+                    </div>
+                </label>
+                <span class="pull-right"><e>{{getTotalPrice()-getDiscountedPrice(getTotalPrice())|currency : $ : 2}}</e></span>
+                <div class="thick"><hr/></div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <u><a class="pull-right" href="">CONTINUE SHOPPING</a></u>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-primary btn-block" value="CHECKOUT">
+                </div>
+            </div>
+            <div class="row" id="lock_div">
+                <div class="shipping pull-right">
+                    <img src="./images/lock.jpg" alt=""> <span> Secure checkout. Shopping is always safe and secure</span>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+
+    </div>
+</div>

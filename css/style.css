@@ -1,0 +1,76 @@
+.color-box{
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(88, 0, 0) rgb(176, 0, 0) rgb(176, 0, 0) rgb(88, 0, 0);
+    border-image: initial;
+
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 3px 3px 1px #cccccc;
+}
+.popupHeader{
+    font-size: 24px;
+    color: #DCDCDC;
+}
+.currency{
+    font-size: 12px;
+}
+.price{
+    font-size: 48px;
+}
+.bottom{
+    height: 100px;
+}
+.bottom_end{
+    margin-top: 30px !important;
+    /*position: absolute !important;*/
+    /*top: 20px;*/
+}
+a{
+    cursor: pointer;
+}
+.color-box:active, .color-box:hover{
+    outline-color: #96588a !important;
+    outline: #2c2d33 solid 1px !important;
+}
+
+.desc_style,.desc_size{
+    color: #8c8c8c;;
+    font-size: 16px;
+}
+.desc_size{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.desc_heading{
+    font-size: 18px;
+}
+.desc_action{
+    position: absolute;
+    bottom: 0px;
+}
+.desc{
+    height:150px;
+}
+.thick hr{
+    border: 4px solid #DDDBDC ;
+}
+e{
+    font-size: 20px;
+    font-weight:bold;
+}
+.shipping{
+    font-size: 14px;
+    font-weight:bold;
+    color: #DDDBDC;
+}
+#lock_div,#form_div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

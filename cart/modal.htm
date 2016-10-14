@@ -1,0 +1,52 @@
+
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center" style="height: 400px">
+                <div class="popupHeader">{{ prod.p_name |uppercase}}</div>
+                <div>
+                    <span class="currency">{{prod.c_currency}}</span>
+                    <span class="price">{{prod.p_price}}</span>
+                </div>
+                <h5>{{prod.p_variation | uppercase}}</h5>
+                <div>
+                    <span ng-repeat="col in prod.p_available_options.colors">
+                        <a class="color-box" title="{{col.name}}" ng-style="{'background-color': col.hexcode}" ng-click="selColor(col.name,col.hexcode)"></a>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3">
+                        <select ng-init="size = prod.p_selected_size"
+                                class="form-control" name="size"
+                                ng-model="size"
+                                ng-options="size.code for size in prod.p_available_options.sizes">
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select ng-model="quantity"
+                                class="form-control"
+                                ng-options="opt as opt for opt in options">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row bottom">
+                    <div class="col-md-6 col-md-offset-3 bottom_end">
+                        <input type="button" class="btn btn-block btn-primary" value="EDIT" ng-click="ok()">
+                        <p>
+                            <a href="">See Product Detais</a>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <img src="images/T{{prod.p_id}}.jpg" height="400">
+            </div>
+        </div>
+    </div>
+</div>
+
